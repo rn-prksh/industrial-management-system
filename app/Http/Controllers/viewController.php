@@ -16,7 +16,6 @@ class ViewController extends Controller
     }
     public function store(Request $request)
     {
-        // If "Show All" button is clicked
         if ($request->has('viewall')) {
             $records = DB::table('main_tab')->get();
             return view('customer.view', [
@@ -25,7 +24,6 @@ class ViewController extends Controller
             ]);
         }
 
-        // Otherwise, filter by company as before
         $request->validate([
             'company' => 'required'
         ]);
@@ -46,7 +44,6 @@ class ViewController extends Controller
     }
     public function dstore(Request $request)
     {
-        // If "Show All" button is clicked
         if ($request->has('viewall')) {
             $records = DB::table('deli_tab')->get();
             return view('customer.d_view', [
@@ -55,7 +52,6 @@ class ViewController extends Controller
             ]);
         }
 
-        // Otherwise, filter by company as before
         $request->validate([
             'company' => 'required'
         ]);
